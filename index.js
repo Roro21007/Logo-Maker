@@ -11,3 +11,39 @@
 
 const inquirer = require('inquirer');
 
+inquirer
+  .prompt([
+    {
+        type: 'input',
+        message: 'Enter three characters',
+        name: 'text',
+    },
+    {
+        type: 'choice',
+        message: 'Color of text',
+        name: 'text-color',
+    },
+    {
+        type: 'choice',
+        message: 'Choose shape',
+        name: 'shape',
+    },
+    {
+        type: 'choice'
+        message: 'Color of shape'
+        name: 'shape-color'
+    }
+  ])
+  .then((response) =>
+    response.confirm === response.password
+      ? console.log('Success!')
+      : console.log('You forgot your password already?!')
+  );
+
+  shapes = [{
+    type: 'list',
+    name: 'shape',
+    message: 'Choose shape :',
+    choices: ['circle', 'triangle', 'square'],
+    //default: 'square'
+}
