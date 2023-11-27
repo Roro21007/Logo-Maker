@@ -1,15 +1,12 @@
 // prompt for text (3 characters)
-// prompt for text color (keyword or hexidecimal)
-// prompt for shape, presented with list (circle, triangle, square)
-// prompt for shape color (keyword or hexidecimal)
-// SVG file created named 'logo.svg' ('Generated logo.svg' is printed command line)
 // open 'logo.svg' file in browser shown 300x200 px that matches criteria
 
 // video submission
 // jest to test
-// inquirer 8.2.4
 
 const inquirer = require('inquirer');
+
+const fs = require('fs');
 
 inquirer
   .prompt([
@@ -19,31 +16,27 @@ inquirer
         name: 'text',
     },
     {
-        type: 'choice',
+        type: 'input',
         message: 'Color of text',
         name: 'text-color',
     },
     {
-        type: 'choice',
-        message: 'Choose shape',
+        type: 'list',
+        message: 'Choose a shape',
+        choices: ['Circle', 'Triangle', 'Square']
         name: 'shape',
     },
     {
-        type: 'choice'
+        type: 'input'
         message: 'Color of shape'
         name: 'shape-color'
     }
   ])
-  .then((response) =>
-    response.confirm === response.password
-      ? console.log('Success!')
-      : console.log('You forgot your password already?!')
+  // logo.svg created
+  fs.appendFile('logo.svg', `${data}\n`, (err) =>
+    err ? console.error(err) : console.log('Added to logo.svg')
   );
 
-  shapes = [{
-    type: 'list',
-    name: 'shape',
-    message: 'Choose shape :',
-    choices: ['circle', 'triangle', 'square'],
-    //default: 'square'
-}
+  .then((response) =>
+      ? console.log('Generated logo.svg')
+  );
