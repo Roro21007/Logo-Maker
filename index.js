@@ -1,5 +1,8 @@
 // prompt for text (3 characters)
 // open 'logo.svg' file in browser shown 300x200 px that matches criteria
+// make shapes?
+// write newdata to file
+// file opens to show logo
 
 // video submission
 // jest to test
@@ -33,8 +36,15 @@ inquirer
     }
   ])
   // logo.svg created
-  fs.appendFile('logo.svg', `${data}\n`, (err) =>
+  fs.writeFile('logo.svg', `${data}\n`, (err) =>
     err ? console.error(err) : console.log('Added to logo.svg')
+
+    function Logo(text, text-color, shape, shape-color) {
+        this.text = text;
+        this.text-color = text-color;
+        this.shape = shape;
+        this.shape-color = shape-color;
+    }
   );
 
   .then((response) =>
